@@ -1,10 +1,11 @@
-ESP32 IoT Smart Home Controller
+ESP32 IoT Smart Home Controller With Alexa Integration 
 
-Overview
+
+Overview:
 
 This project is an ESPHome-based smart home automation system using an ESP32. It integrates temperature and humidity monitoring (DHT11 sensor) and home automation (relay control) with automatic temperature-based switching. The system seamlessly integrates with Home Assistant, allowing easy control via a web interface, automation rules, and voice commands through Alexa.
 
-Features
+Features:
 
 DHT11 Sensor: Monitors room temperature and humidity.
 
@@ -18,7 +19,7 @@ Fallback Access Point: If WiFi is unavailable, the device creates a fallback hot
 
 Over-the-Air (OTA) Updates: Firmware can be updated wirelessly.
 
-Hardware Requirements
+Hardware Requirements:
 
 ESP32
 
@@ -30,7 +31,9 @@ WiFi Network
 
 **Power Supply (5V)
 
-Project Overview
+
+Project Overview:
+
 
 1. Temperature and Humidity Monitoring
 
@@ -70,7 +73,9 @@ SSID: Controller Fallback Hotspot
 
 Password: xxxxxx
 
-Home Assistant OS Installation on VMware
+
+Home Assistant OS Installation on VMware:
+
 
 1. Download Home Assistant OS (Virtual Machine Image)
 
@@ -134,7 +139,9 @@ http://<YOUR_VM_IP>:8123
 
 Follow the Home Assistant setup wizard
 
-Connecting Home Assistant to Alexa
+
+Connecting Home Assistant to Alexa:
+
 
 Home Assistant does not natively support Alexa. To integrate, use Home Assistant Cloud (Nabu Casa) or a manual setup with Alexa Skills & MQTT.
 
