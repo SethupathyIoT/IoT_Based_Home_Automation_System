@@ -1,0 +1,73 @@
+esphome:
+  name: controller
+  platform: ESP32
+  board: esp32dev
+
+# Enable logging for debugging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "YOUR-ENCRYPTION-KEY"
+
+# Enable OTA updates
+ota:
+  password: "SILK@IOT"
+
+# WiFi Configuration
+wifi:
+  ssid: "IOT"
+  password: "A=SILK@IOT"
+  ap:
+    ssid: "Controller Fallback Hotspot"
+    password: "SILK@IOT"
+
+# Enable captive portal for fallback access point
+captive_portal:
+
+# DHT11 Sensor Configuration
+sensor:
+  - platform: dht
+    pin: GPIO4
+    model: DHT11
+    temperature:
+      name: "Room Temperature"
+      id: room_temp
+    humidity:
+      name: "Room Humidity"
+    update_interval: 10s
+
+# Relay Switch Configuration
+switch:
+  - platform: gpio
+    pin: GPIO18
+    name: "Relay 1"
+    id: relay_1
+  - platform: gpio
+    pin: GPIO19
+    name: "Relay 2"
+    id: relay_2
+  - platform: gpio
+    pin: GPIO21
+    name: "Relay 3"
+    id: relay_3
+  - platform: gpio
+    pin: GPIO22
+    name: "Relay 4"
+    id: relay_4
+
+# Automatically control Relay 4 based on temperature
+binary_sensor:
+  - platform: template
+    name: "Relay 4 Auto Control"
+    lambda: |-
+      if (id(room_temp).state > 30) {
+        return true;
+      } else {
+        return false;
+      }
+    on_press:
+      - switch.turn_on: relay_4
+    on_release:
+      - switch.turn_off: relay_4
