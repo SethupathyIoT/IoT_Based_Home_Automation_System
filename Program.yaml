@@ -13,15 +13,15 @@ api:
 
 # Enable OTA updates
 ota:
-  password: "SILK@IOT"
+  password: "xxxxx"
 
 # WiFi Configuration
 wifi:
-  ssid: "IOT"
-  password: "A=SILK@IOT"
+  ssid: "xxxx"
+  password: "xxxxxxxx"
   ap:
     ssid: "Controller Fallback Hotspot"
-    password: "SILK@IOT"
+    password: "xxxxxxxx"
 
 # Enable captive portal for fallback access point
 captive_portal:
